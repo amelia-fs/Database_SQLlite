@@ -16,11 +16,11 @@ class MainActivity2 : AppCompatActivity() {
         tampil = findViewById(R.id.tampil_semua)
         ltampil = findViewById(R.id.ltampil)
         var tampilkan = userDBHelper.fullData()
-        ltampil.removeAllViews()
+ //      ltampil.removeAllViews()
         tampilkan.forEach {
-            tampil.text = it.email.toString() + " - " + it.nama.toString() + " - " + it.alamat.toString() + " - " +
-                    it.jk.toString() + " - " + it.telepon.toString()
-            ltampil.addView(tampil)
+            tampil.text = tampil.text.toString() + " " + it.email.toString() + " - " + it.nama.toString() + " - " + it.alamat.toString() + " - " +
+                    it.jk.toString() + " - " + it.telepon.toString() + "\n"
+   //         ltampil.addView(tampil)
         }
     }
 }

@@ -43,7 +43,8 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
         return true
     }
     fun fullData():ArrayList<DBModel>{
-        val user = ArrayList<DBModel>()
+  //      val user = ArrayList<DBModel>()
+        val user = arrayListOf<DBModel>()
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
@@ -71,4 +72,25 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null,
         }
         return user
     }
+    fun deleteData(emailin: String){
+        val db = writableDatabase
+        val namatablet = DBinfo.UserMasuk.TABLE_NAME
+        val emailt = DBinfo.UserMasuk.COL_EMAIL
+        val sql = "DELETE FROM " +namatablet+ " WHERE " +emailt+"='"+emailin+"'"
+        db.execSQL(sql)
+    }
+    fun updateData(emailin: String, namain: String, alamatin: String, jkin: String, teleponin: String){
+        val db = writableDatabase
+        val namatablet = DBinfo.UserMasuk.TABLE_NAME
+        val emailt = DBinfo.UserMasuk.COL_EMAIL
+        val namat = DBinfo.UserMasuk.COL_NAMA
+        val alamatt = DBinfo.UserMasuk.COL_ALAMAT
+        val jkt = DBinfo.UserMasuk.COL_JK
+        val telepont = DBinfo.UserMasuk.COL_TELEPON
+        var sql = "UPDATE "+ namatablet + " SET "+
+                namat+"='"+namain+"', "+alamatt+"='"+alamatin+"', "+jkt+"='"+jkin+"', "+telepont+"='"+teleponin+"' "+
+                "WHERE "+emailt+"='"+emailin+"'"
+        db.execSQL(sql)
+    }
+
 }

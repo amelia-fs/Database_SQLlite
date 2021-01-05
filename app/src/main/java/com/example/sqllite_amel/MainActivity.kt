@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         inputTelepon.setText("")
     }
     fun showAll(v: View){
-        var pindah = Intent(this, MainActivity2::class.java)
+        var pindah = Intent(this, RvDbActivity::class.java)
         startActivity(pindah)
     }
 }
